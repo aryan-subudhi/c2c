@@ -1,4 +1,4 @@
-![Cloudinary Developers](https://github.com/cloudinary-devs/.github/blob/main/assets/cloudinary-banner.png?raw=true)
+![Cloud to Crowd Curricula](https://res.cloudinary.com/cloudinary-creators-community/image/upload/v1776281598/c2c-gh_gijqhz.png?raw=true)
 
 <div align="center">
   <br />
