@@ -6,7 +6,7 @@ import ProductImage from '@/components/ProductImage';
 import ColourSelector from '@/components/ColourSelector';
 import ImageModal from '@/components/ImageModal';
 
-const VideoPlayer = dynamic(() => import('@/components/VideoPlayer'), { ssr: false });
+// const VideoPlayer = dynamic(() => import('@/components/VideoPlayer'), { ssr: false });
 
 export default function ProductPageClient({
   image,
@@ -50,19 +50,16 @@ export default function ProductPageClient({
         </button>
       </div>
 
-      <ColourSelector
-        selectedColour={selectedColour}
-        onColourChangeAction={setSelectedColour}
-      />
+      <ColourSelector selectedColour={selectedColour} onColourChangeAction={setSelectedColour} />
 
-      {productId === 2 && (
+      {/*{productId === 2 && (
         <button
           onClick={() => setIsVideoModalOpen(true)}
           className="w-full bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white text-lg font-bold py-3 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-purple-300"
         >
           Watch Videos
         </button>
-      )}
+      )}*/}
 
       <ImageModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <div className="w-full">
@@ -77,9 +74,9 @@ export default function ProductPageClient({
         </div>
       </ImageModal>
 
-      <ImageModal isOpen={isVideoModalOpen} onClose={() => setIsVideoModalOpen(false)}>
+      {/*<ImageModal isOpen={isVideoModalOpen} onClose={() => setIsVideoModalOpen(false)}>
         <VideoPlayer />
-      </ImageModal>
+      </ImageModal>*/}
     </div>
   );
 }
