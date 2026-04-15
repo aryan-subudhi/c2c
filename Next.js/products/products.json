@@ -4,7 +4,7 @@
     "name": "Skyline Breeze Cap",
     "price": 24.99,
     "description": "A lightweight and comfortable baseball cap designed for everyday wear.",
-    "discount": false,
+    "discount": true,
     "available": true,
     "image": "product-1.jpg"
   },

@@ -1,7 +1,8 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
-//import { CldUploadWidget } from 'next-cloudinary';
+
+import { CldUploadWidget } from 'next-cloudinary';
 
 export default function UW() {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,9 +43,38 @@ export default function UW() {
                 </p>
               </div>
 
-              {/*
-                UPLOAD WIDGET CODE TO BE ADDED HERE
-              */}
+              <CldUploadWidget
+                uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET}
+                options={{
+                  sources: ['local', 'url'],
+                  multiple: true,
+                  maxFiles: 12,
+                  clientAllowedFormats: ['jpg', 'jpeg'],
+                }}
+                onOpen={() => {
+                  setIsOpen(true);
+                }}
+                onClose={() => setIsOpen(false)}
+              >
+                {({ open }) => {
+                  return (
+                    <button
+                      onClick={() => open()}
+                      disabled={isOpen}
+                      className={`
+                        px-8 py-4 text-xl font-black rounded-full shadow-lg transition-all duration-300 hover:cursor-pointer
+                        ${
+                          isOpen
+                            ? 'bg-gray-400 text-white cursor-not-allowed'
+                            : 'bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white hover:shadow-2xl hover:scale-105'
+                        }
+                      `}
+                    >
+                      {isOpen ? 'Uploading...' : '📤 Upload Images'}
+                    </button>
+                  );
+                }}
+              </CldUploadWidget>
 
               <div className="w-full bg-blue-50 rounded-xl p-4 border border-blue-200">
                 <p className="text-sm text-gray-700 flex items-start gap-2">

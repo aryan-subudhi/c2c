@@ -22,7 +22,7 @@ export default function Admin() {
           </div>
         </header>
 
-        <section aria-labelledby="upload-methods">
+        <section aria-labelledby="upload-methods mx-auto">
           <ul className="flex flex-wrap justify-center" role="list">
             <li>
               <Link

@@ -1,12 +1,10 @@
 import Link from 'next/link';
 import { promises as fs } from 'node:fs';
 import type { Product } from '@/types/types';
+import ProductCard from '@/components/ProductCard';
 
 export default async function Home() {
-  const file = await fs.readFile(
-    process.cwd() + '/products/products.json',
-    'utf8'
-  );
+  const file = await fs.readFile(process.cwd() + '/products/products.json', 'utf8');
   const parsed = JSON.parse(file);
   const products = parsed.filter((product: Product) => product.available);
 
@@ -44,8 +42,7 @@ export default async function Home() {
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
           {products.map((product: Product) => (
             <li key={product.id}>
-              <Link href={`products/${product.id}`}>{product.name}</Link>
-              <p>${product.price}</p>
+              <ProductCard product={product} />
             </li>
           ))}
         </ul>

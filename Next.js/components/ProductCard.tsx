@@ -1,5 +1,5 @@
 import type { Product } from '@/types/types';
-// import ProductImage from './ProductImage';
+import ProductImage from './ProductImage';
 import Link from 'next/link';
 
 export default function ProductCard({ product }: { product: Product }) {
@@ -15,7 +15,14 @@ export default function ProductCard({ product }: { product: Product }) {
         className="block focus:outline-none focus:ring-4 focus:ring-purple-400 rounded-2xl"
       >
         <div className="relative overflow-hidden bg-gradient-to-br from-purple-100 to-pink-100">
-          <div className="aspect-square">{/* Product Image Component */}</div>
+          <div className="aspect-square">
+            <ProductImage
+              publicId={product.image}
+              width={590}
+              height={590}
+              discount={product.discount}
+            />
+          </div>
         </div>
 
         <div className="p-5">
@@ -30,11 +37,7 @@ export default function ProductCard({ product }: { product: Product }) {
           <div className="flex items-center justify-between">
             <div className="relative">
               <p className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-600">
-                $
-                {(product.discount
-                  ? product.price * 0.8
-                  : product.price
-                ).toFixed(2)}
+                ${(product.discount ? product.price * 0.8 : product.price).toFixed(2)}
               </p>
               {product.discount && (
                 <span className="absolute -top-3 -right-3 bg-gradient-to-r from-red-500 to-pink-600 text-white text-xs font-black px-2 py-0.5 rounded-full transform rotate-12">
