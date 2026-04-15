@@ -1,13 +1,13 @@
 'use client';
 
-// const COLORS = [
-//   { name: 'Default', value: 'default', hex: null },
-//   { name: 'Lavender', value: 'lavender', hex: '#E6E6FA' },
-//   { name: 'Pink', value: 'pink', hex: '#FFB6C1' },
-//   { name: 'Peach', value: 'peach', hex: '#FFDAB9' },
-//   { name: 'Sky Blue', value: 'skyblue', hex: '#B0E0E6' },
-//   { name: 'Mint', value: 'mint', hex: '#B4F8C8' },
-// ];
+const COLORS = [
+  { name: 'Default', value: 'default', hex: null },
+  { name: 'Lavender', value: 'lavender', hex: '#E6E6FA' },
+  { name: 'Pink', value: 'pink', hex: '#FFB6C1' },
+  { name: 'Peach', value: 'peach', hex: '#FFDAB9' },
+  { name: 'Sky Blue', value: 'skyblue', hex: '#B0E0E6' },
+  { name: 'Mint', value: 'mint', hex: '#B4F8C8' },
+];
 
 interface ColorSelectorProps {
   selectedColor: string | null;
@@ -18,6 +18,7 @@ export default function ColorSelector({
   selectedColor,
   onColorChangeAction,
 }: ColorSelectorProps) {
+
   return (
     <section aria-labelledby="color-heading" className="space-y-3">
       <h2 id="color-heading" className="text-lg font-bold text-gray-700">

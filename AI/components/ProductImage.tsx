@@ -26,15 +26,15 @@ export default function ProductImage({
   }, [color, widescreen]);
   const transformations = [];
 
-  // if (widescreen) {
-  //   transformations.push('c_pad,w_3413,ar_16:9,b_gen_fill');
-  // }
+  if (widescreen) {
+    transformations.push('c_pad,w_3413,ar_16:9,b_gen_fill');
+  }
 
-  // if (color) {
-  //   // Remove # from hex code for Cloudinary
-  //   const hexValue = color.startsWith('#') ? color.substring(1) : color;
-  //   transformations.push(`e_gen_recolor:prompt_baseball cap;to-color_${hexValue}`);
-  // }
+  if (color) {
+    // Remove # from hex code for Cloudinary
+    const hexValue = color.startsWith('#') ? color.substring(1) : color;
+    transformations.push(`e_gen_recolor:prompt_baseball cap;to-color_${hexValue}`);
+  }
 
   return (
     <>
@@ -46,58 +46,54 @@ export default function ProductImage({
       <CldImage
         key={`${color || 'default'}-${widescreen}`}
         onLoad={() => setIsLoading(false)}
-        src={`${publicId}`}
-        alt={`Product: ${publicId}`}
-        width={width}
-        height={height}
-        crop={
-          widescreen
-            ? undefined
-            : {
-                type: 'fill',
-                source: true,
-                gravity: 'auto',
-              }
-        }
-        rawTransformations={transformations}
-        overlays={[
-          {
-            publicId: `capital-caps-logo`,
-            width: 300,
-            position: {
-              x: 0,
-              y: 0,
-              gravity: 'north_east',
-            },
-            effects: [
-              {
-                opacity: 50,
-              },
-            ],
+      src={`/${publicId}`}
+      alt={`Product: ${publicId}`}
+      width={width}
+      height={height}
+      crop={widescreen ? undefined : {
+        type: 'fill',
+        source: true,
+        gravity: 'auto',
+      }}
+      rawTransformations={transformations}
+      overlays={[
+        {
+          publicId: `capital-caps-logo`,
+          width: 300,
+          position: {
+            x: 0,
+            y: 0,
+            gravity: 'north_east',
           },
-          ...(discount
-            ? [
-                {
-                  text: {
-                    fontFamily: 'Lobster',
-                    fontSize: 80,
-                    text: ' 20% OFF ',
-                    color: 'white',
-                  },
-                  position: {
-                    gravity: 'north_west',
-                    angle: -45,
-                  },
-                  effects: [
-                    {
-                      background: 'rgb:FF1744',
-                    },
-                  ],
+          effects: [
+            {
+              opacity: 50,
+            },
+          ],
+        },
+        ...(discount
+          ? [
+              {
+                text: {
+                  fontFamily: 'Lobster',
+                  fontSize: 80,
+                  text: ' 20% OFF ',
+                  color: 'white',
                 },
-              ]
-            : []),
-        ]}
-      />
+                position: {
+                  gravity: 'north_west',
+                  angle: -45,
+                },
+                effects: [
+                  {
+                    background: 'rgb:FF1744',
+                  },
+                ],
+              },
+            ]
+          : []),
+      ]}
+    />
     </>
   );
 }

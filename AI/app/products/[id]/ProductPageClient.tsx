@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import ProductImage from '@/components/ProductImage';
-// import ColorSelector from '@/components/ColorSelector';
+import ColorSelector from '@/components/ColorSelector';
 import ImageModal from '@/components/ImageModal';
 
 export default function ProductPageClient({
@@ -12,7 +12,7 @@ export default function ProductPageClient({
   image: string;
   discount: boolean;
 }) {
-  const [selected, setSelected] = useState<string | null>(null);
+  const [selectedColor, setSelectedColor] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -23,7 +23,7 @@ export default function ProductPageClient({
           width={800}
           height={800}
           discount={discount}
-          color={selected ?? undefined}
+          color={selectedColor ?? undefined}
         />
         <button
           onClick={() => setIsModalOpen(true)}
@@ -44,7 +44,10 @@ export default function ProductPageClient({
         </button>
       </div>
 
-      {/* <ColorSelector selected={selected} onChangeAction={setSelected} /> */}
+      <ColorSelector
+        selectedColor={selectedColor}
+        onColorChangeAction={setSelectedColor}
+      />
 
       <ImageModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <div className="w-full">
@@ -53,7 +56,7 @@ export default function ProductPageClient({
             width={3413}
             height={1920}
             discount={discount}
-            color={selected ?? undefined}
+            color={selectedColor ?? undefined}
             widescreen={true}
           />
         </div>
