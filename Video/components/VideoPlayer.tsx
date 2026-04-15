@@ -13,7 +13,7 @@ export default function VideoPlayer() {
     if (!el || playerRef.current) return;
 
     const player = cloudinary.videoPlayer(el, {
-      cloudName: 'tamas-demo',
+      cloudName: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
       fluid: true,
     });
 

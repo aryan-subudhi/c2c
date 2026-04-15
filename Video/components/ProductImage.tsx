@@ -46,7 +46,7 @@ export default function ProductImage({
       <CldImage
         key={`${colour || 'default'}-${widescreen}`}
         onLoad={() => setIsLoading(false)}
-      src={`${publicId}`}
+      src={`${process.env.NEXT_PUBLIC_CLOUDINARY_FOLDER_NAME}/${publicId}`}
       alt={`Product: ${publicId}`}
       width={width}
       height={height}
@@ -58,7 +58,7 @@ export default function ProductImage({
       rawTransformations={transformations}
       overlays={[
         {
-          publicId: `capital-caps-logo`,
+          publicId: `${process.env.NEXT_PUBLIC_CLOUDINARY_FOLDER_NAME}/capital-caps-logo`,
           width: 300,
           position: {
             x: 0,
