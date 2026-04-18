@@ -4,6 +4,8 @@ A modern, full-stack e-commerce application for a baseball cap store built with 
 
 > This application supports the "Cloud to Crowd" Media IQ course on Cloudinary Academy, free for all and designed for the Cloudinary Creators Program. Learn more at https://community.cloudinary.com and take the course at https://training.cloudinary.com/learn/course/devrel-c2c-next
 
+**This app can be seen in its final state (after the c2c-next course) is available here: https://c2c-next.netlify.app**
+
 ## 🚀 Features
 
 - **Product Catalog**: Browse available baseball caps with detailed product pages
