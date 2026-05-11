@@ -1,5 +1,5 @@
 import type { Product } from '@/types/types';
-// import ProductImage from './ProductImage';
+import ProductImage from './ProductImage';
 import Link from 'next/link';
 
 export default function ProductCard({ product }: { product: Product }) {
@@ -15,7 +15,12 @@ export default function ProductCard({ product }: { product: Product }) {
         className="block focus:outline-none focus:ring-4 focus:ring-purple-400 rounded-2xl"
       >
         <div className="relative overflow-hidden bg-gradient-to-br from-purple-100 to-pink-100">
-          <div className="aspect-square">{/* Product Image Component */}</div>
+          <div className="aspect-square">{<ProductImage
+            publicId={product.image}
+            width={590}
+            height={590}
+            discount={product.discount}
+          />}</div>
         </div>
 
         <div className="p-5">

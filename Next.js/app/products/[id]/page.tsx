@@ -1,3 +1,4 @@
+import ProductImage from '@/components/ProductImage';
 import { promises as fs } from 'node:fs';
 import type { Product } from '@/types/types';
 import { notFound } from 'next/navigation';
@@ -28,7 +29,12 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
           <div className="space-y-6">
             <figure className="relative">
               <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-purple-100 to-pink-100 shadow-lg">
-                {/*Product Image*/}
+                {<ProductImage
+                  publicId={product.image}
+                  width={800}
+                  height={800}
+                  discount={product.discount}
+                />}
               </div>
               <figcaption className="sr-only">{product.name}</figcaption>
             </figure>
